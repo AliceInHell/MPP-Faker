@@ -2,3 +2,7 @@ E:\Study\Labs\5 semester\MPP\lab2\Faker\ConsoleFaking\bin\Debug\ConsoleFaking.ex
 E:\Study\Labs\5 semester\MPP\lab2\Faker\ConsoleFaking\bin\Debug\ConsoleFaking.pdb
 E:\Study\Labs\5 semester\MPP\lab2\Faker\ConsoleFaking\obj\Debug\ConsoleFaking.exe
 E:\Study\Labs\5 semester\MPP\lab2\Faker\ConsoleFaking\obj\Debug\ConsoleFaking.pdb
+E:\Study\Labs\5 semester\MPP\lab2\Faker\ConsoleFaking\obj\Debug\ConsoleFaking.csprojResolveAssemblyReference.cache
+E:\Study\Labs\5 semester\MPP\lab2\Faker\ConsoleFaking\bin\Debug\ConsoleFaking.exe.config
+E:\Study\Labs\5 semester\MPP\lab2\Faker\ConsoleFaking\bin\Debug\FakerLibrary.dll
+E:\Study\Labs\5 semester\MPP\lab2\Faker\ConsoleFaking\bin\Debug\FakerLibrary.pdb
