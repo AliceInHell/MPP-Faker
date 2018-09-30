@@ -1,20 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Runtime.Serialization;
 
 namespace FakerLibrary
 {
+    [DataContract]
     public class Foo<T>
     {
+        [DataMember]
         private int _int;
+        [DataMember]
         private double _double;
+        [DataMember]
         private float _float;
+        [DataMember]
         private bool _bool;
+        [DataMember]
         private string _string;
+        [DataMember]
         private long _long;
+        [DataMember]
         private object _object;
+        [DataMember]
         private DateTime _date;
+        [DataMember]
         private List<T> _list;
 
         public int getInt()

@@ -14,9 +14,10 @@ namespace ConsoleFaking
             Faker faker = new Faker();
             Foo<string> f = faker.Create<Foo<string>>();
 
-            Console.WriteLine("{0}  {1}  {2}  {3}  {4}  {5}  {6}  {7}  {8}", 
-                f.getDouble(), f.getFloat(), f.getInt(), f.getBool(), f.getString(), 
-                f.getLong(), f.getObkect(), f.getDate(), f.getList()[0]);
+            ResultWriter newWriter = new ResultWriter();
+            JSONSerializer newSerializer = new JSONSerializer();
+
+            newWriter.write(newSerializer.serialize(f));
             Console.ReadLine();
         }
     }

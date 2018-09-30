@@ -3,3 +3,4 @@ E:\Study\Labs\5 semester\MPP\lab2\Faker\FakerLibrary\bin\Debug\FakerLibrary.pdb
 E:\Study\Labs\5 semester\MPP\lab2\Faker\FakerLibrary\obj\Debug\FakerLibrary.csprojResolveAssemblyReference.cache
 E:\Study\Labs\5 semester\MPP\lab2\Faker\FakerLibrary\obj\Debug\FakerLibrary.dll
 E:\Study\Labs\5 semester\MPP\lab2\Faker\FakerLibrary\obj\Debug\FakerLibrary.pdb
+E:\Study\Labs\5 semester\MPP\lab2\Faker\FakerLibrary\bin\Debug\Newtonsoft.Json.dll
