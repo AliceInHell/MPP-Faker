@@ -1,0 +1,4 @@
+E:\Study\Labs\5 semester\MPP\lab2\Faker\ConsoleFaking\bin\Debug\ConsoleFaking.exe
+E:\Study\Labs\5 semester\MPP\lab2\Faker\ConsoleFaking\bin\Debug\ConsoleFaking.pdb
+E:\Study\Labs\5 semester\MPP\lab2\Faker\ConsoleFaking\obj\Debug\ConsoleFaking.exe
+E:\Study\Labs\5 semester\MPP\lab2\Faker\ConsoleFaking\obj\Debug\ConsoleFaking.pdb
