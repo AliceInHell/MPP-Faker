@@ -12,9 +12,11 @@ namespace ConsoleFaking
         static void Main(string[] args)
         {
             Faker faker = new Faker();
-            Foo f = faker.Create<Foo>();
+            Foo<string> f = faker.Create<Foo<string>>();
 
-            Console.WriteLine("{0}  {1}  {2}", f.first, f.second, f.getThird());
+            Console.WriteLine("{0}  {1}  {2}  {3}  {4}  {5}  {6}  {7}  {8}", 
+                f.getDouble(), f.getFloat(), f.getInt(), f.getBool(), f.getString(), 
+                f.getLong(), f.getObkect(), f.getDate(), f.getList()[0]);
             Console.ReadLine();
         }
     }

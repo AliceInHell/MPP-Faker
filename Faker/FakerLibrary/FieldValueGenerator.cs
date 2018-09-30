@@ -10,10 +10,26 @@ namespace FakerLibrary
     {
         public static object generateValue(Type t)
         {
-            switch (t.ToString())
+            switch (t.Name)
             {
-                case "System.Int32":
-                    return IntGenerator.genearte();
+                case "Int32":
+                    return IntGenerator.Genearte();
+                case "Single":
+                    return FloatGenerator.Generate();
+                case "Double":
+                    return DoubleGenerator.Generate();
+                case "Boolean":
+                    return BoolGenerator.Generate();
+                case "String":
+                    return StringGenerator.Generate();
+                case "Int64":
+                    return LongGenerator.Generate();
+                case "Object":
+                    return ObjectGenerator.Generate();
+                case "DateTime":
+                    return DateTimeGenerator.Generate();
+                case "List`1":
+                    return ListGenerator.Generate(t.GenericTypeArguments[0]);
                 default :
                     return (t.IsValueType) ? Activator.CreateInstance(t) : null;
             }

@@ -14,7 +14,7 @@ namespace FakerLibrary
             int i = 0;
             foreach(ParameterInfo pi in info.GetParameters())
             {
-                tmp[i] = (FieldValueGenerator.generateValue(pi.ParameterType));
+                tmp[i] = FieldValueGenerator.generateValue(pi.ParameterType);
                 i++;
             }
 
@@ -30,8 +30,9 @@ namespace FakerLibrary
             //get public fields
             FieldInfo[] fieldInfo = t.GetFields(BindingFlags.Public | BindingFlags.Instance);
 
+            //setting values to public fields
             foreach (FieldInfo info in fieldInfo)
-                info.SetValue(tmp, FieldValueGenerator.generateValue(info.GetType()));
+                info.SetValue(tmp, FieldValueGenerator.generateValue(info.FieldType));
 
             return tmp;
         }
@@ -64,6 +65,7 @@ namespace FakerLibrary
                 //create by params initialization 
                 obj = CreateByPublicParams(t);
             }
+
             return (T) obj;
         }
     }
