@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace FakerLibrary
+namespace GeneratorPlugins
 {
-    public static class BoolGenerator
+    public class BoolGenerator : IGeneratorPlugin
     {
-        public static bool Generate()
+        public object Generate()
         {
             Random rand = new Random();
             return rand.Next(0, 2) == 1 ? true : false;

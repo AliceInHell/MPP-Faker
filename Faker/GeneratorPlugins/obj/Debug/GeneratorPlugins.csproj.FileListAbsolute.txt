@@ -1,0 +1,5 @@
+E:\Study\Labs\5 semester\MPP\lab2\Faker\GeneratorPlugins\bin\Debug\GeneratorPlugins.dll
+E:\Study\Labs\5 semester\MPP\lab2\Faker\GeneratorPlugins\bin\Debug\GeneratorPlugins.pdb
+E:\Study\Labs\5 semester\MPP\lab2\Faker\GeneratorPlugins\obj\Debug\GeneratorPlugins.csprojResolveAssemblyReference.cache
+E:\Study\Labs\5 semester\MPP\lab2\Faker\GeneratorPlugins\obj\Debug\GeneratorPlugins.dll
+E:\Study\Labs\5 semester\MPP\lab2\Faker\GeneratorPlugins\obj\Debug\GeneratorPlugins.pdb

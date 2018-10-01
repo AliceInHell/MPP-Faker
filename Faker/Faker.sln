@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleFaking", "ConsoleFak
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{CC5056AE-C1FC-4981-93AC-212EC65F9509}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratorPlugins", "GeneratorPlugins\GeneratorPlugins.csproj", "{8A44797C-B5DD-408D-B8CC-48803B724582}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{CC5056AE-C1FC-4981-93AC-212EC65F9509}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC5056AE-C1FC-4981-93AC-212EC65F9509}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC5056AE-C1FC-4981-93AC-212EC65F9509}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A44797C-B5DD-408D-B8CC-48803B724582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A44797C-B5DD-408D-B8CC-48803B724582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A44797C-B5DD-408D-B8CC-48803B724582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A44797C-B5DD-408D-B8CC-48803B724582}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
