@@ -1,0 +1,10 @@
+E:\Study\Labs\5 semester\MPP\lab2\Faker\UnitTest\bin\Debug\UnitTest.dll
+E:\Study\Labs\5 semester\MPP\lab2\Faker\UnitTest\bin\Debug\UnitTest.pdb
+E:\Study\Labs\5 semester\MPP\lab2\Faker\UnitTest\bin\Debug\FakerLibrary.dll
+E:\Study\Labs\5 semester\MPP\lab2\Faker\UnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\Study\Labs\5 semester\MPP\lab2\Faker\UnitTest\bin\Debug\Newtonsoft.Json.dll
+E:\Study\Labs\5 semester\MPP\lab2\Faker\UnitTest\bin\Debug\FakerLibrary.pdb
+E:\Study\Labs\5 semester\MPP\lab2\Faker\UnitTest\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+E:\Study\Labs\5 semester\MPP\lab2\Faker\UnitTest\obj\Debug\UnitTest.csprojResolveAssemblyReference.cache
+E:\Study\Labs\5 semester\MPP\lab2\Faker\UnitTest\obj\Debug\UnitTest.dll
+E:\Study\Labs\5 semester\MPP\lab2\Faker\UnitTest\obj\Debug\UnitTest.pdb

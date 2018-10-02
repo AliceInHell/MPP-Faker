@@ -24,62 +24,72 @@ namespace FakerLibrary
         [DataMember]
         private DateTime _date;
         [DataMember]
+        private char _char;
+        [DataMember]
         private List<T> _list;
         [DataMember]
         private Bar<byte> _bar;
 
-        public int getInt()
+        [DataMember]
+        public int fakeInt;
+
+        public int GetInt()
         {
             return _int;
         }
 
-        public double getDouble()
+        public double GetDouble()
         {
             return _double;
         }
 
-        public float getFloat()
+        public float GetFloat()
         {
             return _float;
         }
 
-        public bool getBool()
+        public bool GetBool()
         {
             return _bool;
         }
 
-        public string getString()
+        public string GetString()
         {
             return _string;
         }
 
-        public long getLong()
+        public long GetLong()
         {
             return _long;
         }
 
-        public object getObkect()
+        public object GetObkect()
         {
             return _object;
         }
 
-        public DateTime getDate()
+        public DateTime GetDate()
         {
             return _date;
         }        
 
-        public List<T> getList()
+        public char GetChar()
+        {
+            return _char;
+        }
+
+        public List<T> GetList()
         {
             return _list;
         }
 
-        public Bar<byte> getBar()
+        public Bar<byte> GetBar()
         {
             return _bar;
         }
 
         public Foo(int i, double d, float f, bool b, string s, long l, object o, DateTime dt, 
-            List<T> list, Bar<byte> bar)
+            char ch, List<T> list, Bar<byte> bar)
         {
             _int = i;
             _double = d;
@@ -89,6 +99,7 @@ namespace FakerLibrary
             _long = l;
             _object = o;
             _date = dt;
+            _char = ch;
             _list = list;
             _bar = bar;
         }
