@@ -27,5 +27,9 @@ namespace FakerLibrary
         public DateTime _date;
         [DataMember]
         public List<T> _list;
+        //[DataMember]
+        //public Foo<char> _foo;
+        [DataMember]
+        public char _char { get; set; }
     }
 }

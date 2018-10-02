@@ -47,6 +47,8 @@
   <ItemGroup>
     <Compile Include="Bar.cs" />
     <Compile Include="BoolGenerator.cs" />
+    <Compile Include="ByteGenerator.cs" />
+    <Compile Include="CharGenerator.cs" />
     <Compile Include="DateTimeGenerator.cs" />
     <Compile Include="DoubleGenerator.cs" />
     <Compile Include="Faker.cs" />

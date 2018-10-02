@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Reflection;
 
 namespace FakerLibrary
@@ -23,16 +20,20 @@ namespace FakerLibrary
 
 
 
-        private object CreateByPublicParams(Type t)
+        private object CreateByPublicFields(Type t)
         {
             object tmp = Activator.CreateInstance(t);
 
             //get public fields
             FieldInfo[] fieldInfo = t.GetFields(BindingFlags.Public | BindingFlags.Instance);
+            PropertyInfo[] propertyInfo = t.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
             //setting values to public fields
             foreach (FieldInfo info in fieldInfo)
                 info.SetValue(tmp, FieldValueGenerator.generateValue(info.FieldType));
+
+            foreach (PropertyInfo info in propertyInfo)
+                info.SetValue(tmp, FieldValueGenerator.generateValue(info.PropertyType));
 
             return tmp;
         }
@@ -62,8 +63,8 @@ namespace FakerLibrary
             }
             else
             {
-                //create by params initialization 
-                obj = CreateByPublicParams(t);
+                //create by public fields/properties 
+                obj = CreateByPublicFields(t);
             }
 
             return (T) obj;

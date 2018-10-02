@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace FakerLibrary
 {
@@ -12,6 +11,9 @@ namespace FakerLibrary
         private static List<Type> _DTO;
         private static Faker _faker;
         private static Assembly _asm;
+
+        //dictiponary will contain inserded DTO
+        private static Dictionary<Type, bool> _dictionary;
 
 
 
@@ -31,9 +33,28 @@ namespace FakerLibrary
 
         public static object generateValue(Type t)
         {
-            //generate inserted DTO
+            //generate inserted DTO if need
             if (_DTO.Contains(t))
-                return _faker.Create<object>();
+            {
+                if (_dictionary.ContainsKey(t))
+                {
+                    if (_dictionary[t])
+                    {
+                        _dictionary.Remove(t);
+                        return null;
+                    }
+                    else
+                    {
+                        _dictionary[t] = true;
+                        return _faker.Create<object>();
+                    }
+                }
+                else
+                {
+                    _dictionary.Add(t, false);
+                    return _faker.Create<object>();
+                }
+            }
 
             Type asmType;
             object obj;
@@ -52,6 +73,10 @@ namespace FakerLibrary
                 //generate by classes
                 case "Double":
                     return DoubleGenerator.Generate();
+                case "Char":
+                    return CharGenerator.Generate();
+                case "Byte":
+                    return ByteGenerator.Generate();
                 case "Int32":
                     return IntGenerator.Genearte();
                 case "String":
@@ -74,6 +99,7 @@ namespace FakerLibrary
         {
             //initiaization
             _DTO = new List<Type>();
+            _dictionary = new Dictionary<Type, bool>();
             _asm = Assembly.LoadFrom("E:\\Study\\Labs\\5 semester\\MPP\\lab2\\Faker\\GeneratorPlugins\\bin\\Debug\\GeneratorPlugins.dll");
         }
     }
