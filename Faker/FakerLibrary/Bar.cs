@@ -30,6 +30,8 @@ namespace FakerLibrary
         [DataMember]
         public Bar<char> _bar;
         [DataMember]
+        public Foo<string> _foo;
+        [DataMember]
         public char _char { get; set; }
     }
 }

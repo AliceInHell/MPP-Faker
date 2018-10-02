@@ -25,6 +25,8 @@ namespace FakerLibrary
         private DateTime _date;
         [DataMember]
         private List<T> _list;
+        [DataMember]
+        private Bar<byte> _bar;
 
         public int getInt()
         {
@@ -71,8 +73,13 @@ namespace FakerLibrary
             return _list;
         }
 
+        public Bar<byte> getBar()
+        {
+            return _bar;
+        }
+
         public Foo(int i, double d, float f, bool b, string s, long l, object o, DateTime dt, 
-            List<T> list)
+            List<T> list, Bar<byte> bar)
         {
             _int = i;
             _double = d;
@@ -83,6 +90,7 @@ namespace FakerLibrary
             _object = o;
             _date = dt;
             _list = list;
+            _bar = bar;
         }
     }
 }

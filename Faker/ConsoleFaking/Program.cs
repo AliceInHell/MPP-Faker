@@ -12,9 +12,10 @@ namespace ConsoleFaking
         static void Main(string[] args)
         {
             Faker faker = new Faker();
-            FieldValueGenerator.setFaker(faker);
+            FieldValueGenerator.SetFaker(faker);
             FieldValueGenerator.DTOAdd(typeof(Foo<string>));
             FieldValueGenerator.DTOAdd(typeof(Bar<char>));
+            FieldValueGenerator.DTOAdd(typeof(Bar<byte>));
 
             Foo<string> foo = faker.Create<Foo<string>>();
             Bar<bool> bar = faker.Create<Bar<bool>>();

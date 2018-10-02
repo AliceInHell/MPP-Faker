@@ -15,7 +15,7 @@ namespace FakerLibrary
             Type type = Type.GetType(typeName);
             object tmp =  Activator.CreateInstance(type);
             
-            ((IList)tmp).Add(FieldValueGenerator.generateValue(t));
+            ((IList)tmp).Add(FieldValueGenerator.GenerateValue(t));
 
             return tmp;
         }

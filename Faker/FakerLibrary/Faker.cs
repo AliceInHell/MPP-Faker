@@ -11,7 +11,7 @@ namespace FakerLibrary
             int i = 0;
             foreach(ParameterInfo pi in info.GetParameters())
             {
-                tmp[i] = FieldValueGenerator.generateValue(pi.ParameterType);
+                tmp[i] = FieldValueGenerator.GenerateValue(pi.ParameterType);
                 i++;
             }
 
@@ -30,10 +30,10 @@ namespace FakerLibrary
 
             //setting values to public fields
             foreach (FieldInfo info in fieldInfo)
-                info.SetValue(tmp, FieldValueGenerator.generateValue(info.FieldType));
+                info.SetValue(tmp, FieldValueGenerator.GenerateValue(info.FieldType));
 
             foreach (PropertyInfo info in propertyInfo)
-                info.SetValue(tmp, FieldValueGenerator.generateValue(info.PropertyType));
+                info.SetValue(tmp, FieldValueGenerator.GenerateValue(info.PropertyType));
 
             return tmp;
         }

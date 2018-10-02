@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.IO;
 
 namespace FakerLibrary
 {
@@ -11,6 +12,7 @@ namespace FakerLibrary
         private static List<Type> _DTOList;
         private static Faker _faker;
         private static Assembly _asm;
+        private static JSONSerializer _jsonSerializer;
 
         //List will contain inserded DTO
         private static List<Type> _cycleControlList;
@@ -26,26 +28,36 @@ namespace FakerLibrary
         }
 
 
-        public static void setFaker(Faker f)
+        public static void SetFaker(Faker f)
         {
             _faker = f;
         }
 
+        public static void Deinitialize()
+        {
+            _cycleControlList.Clear();
+        }
 
-        public static object generateValue(Type t)
+
+        public static object GenerateValue(Type t)
         {
             //generate inserted DTO if need
             if (_DTOList.Contains(t))
             {
-                if (_cycleControlList.Contains(t))
+                if (_cycleControlList.Contains(t))  
                 {
                     _cycleControlList.Remove(t);
                     return null;
                 }
                 else
                 {
+                    MemoryStream tmpCycleControllListMS = _jsonSerializer.serialize(_cycleControlList);
                     _cycleControlList.Add(t);
-                    return _faker.Create(t);
+
+                    object tmpObject = _faker.Create(t);
+
+                    _cycleControlList = _jsonSerializer.deserialize(tmpCycleControllListMS);
+                    return tmpObject;
                 }
             }
 
@@ -67,6 +79,7 @@ namespace FakerLibrary
             //class initiaization
             _DTOList = new List<Type>();
             _cycleControlList = new List<Type>();
+            _jsonSerializer = new JSONSerializer();
             _asm = Assembly.LoadFrom("E:\\Study\\Labs\\5 semester\\MPP\\lab2\\Faker\\GeneratorPlugins\\bin\\Debug\\GeneratorPlugins.dll");
 
             //generatorsDictionary initialization
