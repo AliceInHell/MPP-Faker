@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FakerLibrary
 {
-    public static class CharGenerator
+    public class CharGenerator : IGenerator
     {
-        public static char Generate()
+        public object Generate()
         {
             Random rand = new Random();
             return Convert.ToChar(Convert.ToInt32(Math.Floor(26 * rand.NextDouble() + 65)));

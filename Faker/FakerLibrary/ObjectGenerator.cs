@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FakerLibrary
 {
-    public static class ObjectGenerator
+    public class ObjectGenerator : IGenerator
     {
-        public static object Generate()
+        public object Generate()
         {
             return new object();
         }

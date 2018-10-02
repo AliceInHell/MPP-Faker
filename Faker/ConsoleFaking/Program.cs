@@ -13,8 +13,8 @@ namespace ConsoleFaking
         {
             Faker faker = new Faker();
             FieldValueGenerator.setFaker(faker);
-            FieldValueGenerator.DTOAdd(typeof(Foo<char>));
-            FieldValueGenerator.DTOAdd(typeof(Bar<int>));
+            FieldValueGenerator.DTOAdd(typeof(Foo<string>));
+            FieldValueGenerator.DTOAdd(typeof(Bar<char>));
 
             Foo<string> foo = faker.Create<Foo<string>>();
             Bar<bool> bar = faker.Create<Bar<bool>>();

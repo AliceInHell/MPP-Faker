@@ -3,3 +3,6 @@ E:\Study\Labs\5 semester\MPP\lab2\Faker\GeneratorPlugins\bin\Debug\GeneratorPlug
 E:\Study\Labs\5 semester\MPP\lab2\Faker\GeneratorPlugins\obj\Debug\GeneratorPlugins.csprojResolveAssemblyReference.cache
 E:\Study\Labs\5 semester\MPP\lab2\Faker\GeneratorPlugins\obj\Debug\GeneratorPlugins.dll
 E:\Study\Labs\5 semester\MPP\lab2\Faker\GeneratorPlugins\obj\Debug\GeneratorPlugins.pdb
+E:\Study\Labs\5 semester\MPP\lab2\Faker\GeneratorPlugins\bin\Debug\FakerLibrary.dll
+E:\Study\Labs\5 semester\MPP\lab2\Faker\GeneratorPlugins\bin\Debug\Newtonsoft.Json.dll
+E:\Study\Labs\5 semester\MPP\lab2\Faker\GeneratorPlugins\bin\Debug\FakerLibrary.pdb

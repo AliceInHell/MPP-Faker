@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FakerLibrary;
 
 namespace GeneratorPlugins
 {
-    public class FloatGenerator : IGeneratorPlugin
+    public class FloatGenerator : IGenerator
     {
         public object Generate()
         {

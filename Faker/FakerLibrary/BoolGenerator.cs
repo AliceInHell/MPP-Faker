@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FakerLibrary
 {
-    public static class BoolGenerator
+    public class BoolGenerator : IGenerator
     {
-        public static bool Generate()
+        public object Generate()
         {
             Random rand = new Random();
             return rand.Next(0, 2) == 1 ? true : false;

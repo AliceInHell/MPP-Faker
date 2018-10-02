@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FakerLibrary
 {
-    public static class ByteGenerator
+    public class ByteGenerator : IGenerator
     {
-        public static byte Generate()
+        public object Generate()
         {
             Random rand = new Random();
             return (byte) rand.Next(0, 256);

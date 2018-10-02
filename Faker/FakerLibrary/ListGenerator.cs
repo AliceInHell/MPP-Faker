@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace FakerLibrary
 {
-    public static class ListGenerator
+    public class ListGenerator : ICollectionGenerator
     {
-        public static object Generate(Type t)
+        public object Generate(Type t)
         {
             string typeName = string.Format("System.Collections.Generic.List`1[[{0}]]", t.AssemblyQualifiedName);
             Type type = Type.GetType(typeName);

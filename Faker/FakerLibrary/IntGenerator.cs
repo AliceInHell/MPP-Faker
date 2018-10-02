@@ -5,9 +5,9 @@ using System.Text;
 
 namespace FakerLibrary
 {
-    public static class IntGenerator
+    public class IntGenerator : IGenerator
     {
-        public static int Genearte()
+        public object Generate()
         {
             Random rand = new Random();
             return rand.Next(int.MinValue, int.MaxValue);

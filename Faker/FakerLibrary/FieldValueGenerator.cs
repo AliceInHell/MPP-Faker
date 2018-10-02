@@ -8,20 +8,22 @@ namespace FakerLibrary
 {
     public static class FieldValueGenerator
     {
-        private static List<Type> _DTO;
+        private static List<Type> _DTOList;
         private static Faker _faker;
         private static Assembly _asm;
 
-        //dictiponary will contain inserded DTO
-        private static Dictionary<Type, bool> _dictionary;
+        //List will contain inserded DTO
+        private static List<Type> _cycleControlList;
 
+        //dictionary will contain generators
+        private static Dictionary<string, IGenerator> _generatorDictionary;
+        private static Dictionary<string, ICollectionGenerator> _collectionGeneratorDictionary;
 
 
         public static void DTOAdd(Type t)
         {
-            _DTO.Add(t);
+            _DTOList.Add(t);
         }
-
 
 
         public static void setFaker(Faker f)
@@ -30,66 +32,31 @@ namespace FakerLibrary
         }
 
 
-
         public static object generateValue(Type t)
         {
             //generate inserted DTO if need
-            if (_DTO.Contains(t))
+            if (_DTOList.Contains(t))
             {
-                if (_dictionary.ContainsKey(t))
+                if (_cycleControlList.Contains(t))
                 {
-                    if (_dictionary[t])
-                    {
-                        _dictionary.Remove(t);
-                        return null;
-                    }
-                    else
-                    {
-                        _dictionary[t] = true;
-                        return _faker.Create<object>();
-                    }
+                    _cycleControlList.Remove(t);
+                    return null;
                 }
                 else
                 {
-                    _dictionary.Add(t, false);
-                    return _faker.Create<object>();
+                    _cycleControlList.Add(t);
+                    return _faker.Create(t);
                 }
             }
 
-            Type asmType;
-            object obj;
-            switch (t.Name)
+            //generate non-DTO field/property
+            if (_generatorDictionary.ContainsKey(t.Name))
+                return _generatorDictionary[t.Name].Generate();
+            else
             {
-                //generate by plagin
-                case "Single":
-                    asmType = _asm.GetType("GeneratorPlugins.FloatGenerator");
-                    obj = Activator.CreateInstance(asmType);
-                    return asmType.GetMethod("Generate").Invoke(obj, null);
-                case "Boolean":
-                    asmType = _asm.GetType("GeneratorPlugins.BoolGenerator");
-                    obj = Activator.CreateInstance(asmType);
-                    return asmType.GetMethod("Generate").Invoke(obj, null);
-
-                //generate by classes
-                case "Double":
-                    return DoubleGenerator.Generate();
-                case "Char":
-                    return CharGenerator.Generate();
-                case "Byte":
-                    return ByteGenerator.Generate();
-                case "Int32":
-                    return IntGenerator.Genearte();
-                case "String":
-                    return StringGenerator.Generate();
-                case "Int64":
-                    return LongGenerator.Generate();
-                case "Object":
-                    return ObjectGenerator.Generate();
-                case "DateTime":
-                    return DateTimeGenerator.Generate();
-                case "List`1":
-                    return ListGenerator.Generate(t.GenericTypeArguments[0]);
-                default :
+                if (_collectionGeneratorDictionary.ContainsKey(t.Name))
+                    return _collectionGeneratorDictionary[t.Name].Generate(t.GenericTypeArguments[0]);
+                else
                     return (t.IsValueType) ? Activator.CreateInstance(t) : null;
             }
         }
@@ -97,10 +64,36 @@ namespace FakerLibrary
 
         static FieldValueGenerator()
         {
-            //initiaization
-            _DTO = new List<Type>();
-            _dictionary = new Dictionary<Type, bool>();
+            //class initiaization
+            _DTOList = new List<Type>();
+            _cycleControlList = new List<Type>();
             _asm = Assembly.LoadFrom("E:\\Study\\Labs\\5 semester\\MPP\\lab2\\Faker\\GeneratorPlugins\\bin\\Debug\\GeneratorPlugins.dll");
+
+            //generatorsDictionary initialization
+            Type asmType;
+            IGenerator obj;
+            _generatorDictionary = new Dictionary<string, IGenerator>();
+            _generatorDictionary.Add("Double", new DoubleGenerator());
+            _generatorDictionary.Add("Char", new CharGenerator());
+            _generatorDictionary.Add("Byte", new ByteGenerator());
+            _generatorDictionary.Add("Int32", new IntGenerator());
+            _generatorDictionary.Add("String", new StringGenerator());
+            _generatorDictionary.Add("Int64", new LongGenerator());
+            _generatorDictionary.Add("Object", new ObjectGenerator());
+            _generatorDictionary.Add("DateTime", new DateTimeGenerator());
+
+            //plugins
+            asmType = _asm.GetType("GeneratorPlugins.FloatGenerator");
+            obj = (IGenerator) Activator.CreateInstance(asmType);
+            _generatorDictionary.Add("Single", obj);
+
+            asmType = _asm.GetType("GeneratorPlugins.BoolGenerator");
+            obj = (IGenerator) Activator.CreateInstance(asmType);
+            _generatorDictionary.Add("Boolean", obj);
+
+            //collectionGeneratorDictionary initialization
+            _collectionGeneratorDictionary = new Dictionary<string, ICollectionGenerator>();
+            _collectionGeneratorDictionary.Add("List`1", new ListGenerator());
         }
     }
 }

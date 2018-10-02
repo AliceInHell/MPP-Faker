@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FakerLibrary
 {
-    public static class StringGenerator
+    public class StringGenerator : IGenerator
     {
-        public static string Generate()
+        public object Generate()
         {
             Random rand = new Random();
             int size = rand.Next(0, 513);

@@ -40,14 +40,12 @@ namespace FakerLibrary
 
 
 
-        public T Create<T>()
+        public object Create(Type t)
         {
-            Type t = typeof(T);
-
             //lets find parametrized constructor
             ConstructorInfo[] constructorInfo = t.GetConstructors();
             ParameterInfo[] parameterInfo;
-            ConstructorInfo parametrizedConstructor  = null;
+            ConstructorInfo parametrizedConstructor = null;
             foreach (ConstructorInfo info in constructorInfo)
             {
                 parameterInfo = info.GetParameters();
@@ -67,7 +65,14 @@ namespace FakerLibrary
                 obj = CreateByPublicFields(t);
             }
 
-            return (T) obj;
+            return obj;
+        }
+
+
+
+        public T Create<T>()
+        {
+            return (T) Create(typeof(T));
         }
     }
 }

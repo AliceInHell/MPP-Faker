@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace GeneratorPlugins
+namespace FakerLibrary
 {
-    interface IGeneratorPlugin
+    public interface IGenerator
     {
         object Generate();
     }

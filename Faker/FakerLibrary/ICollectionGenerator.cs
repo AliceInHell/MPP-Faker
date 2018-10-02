@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace FakerLibrary
 {
-    public class DateTimeGenerator : IGenerator
+    interface ICollectionGenerator
     {
-        public object Generate()
-        {
-            return DateTime.Now;
-        }
+        object Generate(Type t);
     }
 }

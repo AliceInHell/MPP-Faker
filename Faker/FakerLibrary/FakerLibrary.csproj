@@ -55,7 +55,9 @@
     <Compile Include="FieldValueGenerator.cs" />
     <Compile Include="FloatGenerator.cs" />
     <Compile Include="Foo.cs" />
+    <Compile Include="ICollectionGenerator.cs" />
     <Compile Include="IFaker.cs" />
+    <Compile Include="IGenerator.cs" />
     <Compile Include="IntGenerator.cs" />
     <Compile Include="IResultWriter.cs" />
     <Compile Include="ISerializer.cs" />
