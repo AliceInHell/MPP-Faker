@@ -23,6 +23,7 @@ namespace UnitTest
             _foo = _faker.Create<Foo<string>>();
         }
 
+        //the most useless test
         [TestMethod]
         public void BoolGeneratorTest()
         {
@@ -32,25 +33,34 @@ namespace UnitTest
         [TestMethod]
         public void CharGeneratorTest()
         {
-            Assert.IsTrue((byte)_foo.GetChar() >= 0 && (byte)_foo.GetChar() <= 255);
+            Assert.IsTrue((byte)_foo.GetChar() > 0 && (byte)_foo.GetChar() <= 255);
+        }
+
+        [TestMethod]
+        public void DateTimeTest()
+        {
+            Assert.IsTrue(_foo.GetDate() != null);
         }
 
         [TestMethod]
         public void DoubleGenratorTest()
         {
-            Assert.IsTrue(_foo.GetDouble() >= double.MinValue && _foo.GetDouble() <= double.MaxValue);
+            Assert.IsTrue((_foo.GetDouble() >= double.MinValue && _foo.GetDouble() <= double.MaxValue) 
+                && _foo.GetDouble() != default(double));
         }
 
         [TestMethod]
         public void FloatGeneratorTest()
         {
-            Assert.IsTrue(_foo.GetFloat() >= float.MinValue && _foo.GetFloat() <= float.MaxValue);
+            Assert.IsTrue(_foo.GetFloat() >= float.MinValue && _foo.GetFloat() <= float.MaxValue 
+                && _foo.GetFloat() != default(float));
         }
 
         [TestMethod]
         public void IntGeneratorTest()
         {
-            Assert.IsTrue(_foo.GetInt() >= int.MinValue && _foo.GetInt() <= int.MaxValue);
+            Assert.IsTrue(_foo.GetInt() >= int.MinValue && _foo.GetInt() <= int.MaxValue 
+                && _foo.GetInt() != default(int));
         }
 
         [TestMethod]
@@ -110,14 +120,14 @@ namespace UnitTest
         [TestMethod]
         public void FakeIntTest()
         {
-            Assert.IsTrue(_foo.fakeInt == 0);
+            Assert.IsTrue(_foo.fakeInt == default(int));
         }
 
         [TestMethod]
         public void PublicBarPropertyTest()
         {
-            Bar<byte> bar = new Bar<byte>();
-            Assert.IsTrue((byte)bar._char >= 0 && (byte)bar._char <= 255);
+            Bar<byte> bar = _faker.Create<Bar<byte>>();
+            Assert.IsTrue((byte)bar._char > 0 && (byte)bar._char <= 255);
         }
     }
 }
