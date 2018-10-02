@@ -51,11 +51,13 @@ namespace FakerLibrary
                 }
                 else
                 {
+                    //copy cycleControlList before recursive call
                     MemoryStream tmpCycleControllListMS = _jsonSerializer.serialize(_cycleControlList);
                     _cycleControlList.Add(t);
 
                     object tmpObject = _faker.Create(t);
 
+                    //extract list on recursive call return
                     _cycleControlList = _jsonSerializer.deserialize(tmpCycleControllListMS);
                     return tmpObject;
                 }
@@ -63,12 +65,15 @@ namespace FakerLibrary
 
             //generate non-DTO field/property
             if (_generatorDictionary.ContainsKey(t.Name))
+                //if baseClassType
                 return _generatorDictionary[t.Name].Generate();
             else
             {
                 if (_collectionGeneratorDictionary.ContainsKey(t.Name))
+                    //if collectionType
                     return _collectionGeneratorDictionary[t.Name].Generate(t.GenericTypeArguments[0]);
                 else
+                    //no generator
                     return (t.IsValueType) ? Activator.CreateInstance(t) : null;
             }
         }

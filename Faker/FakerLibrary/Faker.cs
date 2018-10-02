@@ -7,8 +7,11 @@ namespace FakerLibrary
     {
         private object CreateByConstructor(Type t, ConstructorInfo info)
         {
+            //temp object for infoking constructor
             object[] tmp = new object[info.GetParameters().Length];
             int i = 0;
+
+            //fill in object
             foreach(ParameterInfo pi in info.GetParameters())
             {
                 tmp[i] = FieldValueGenerator.GenerateValue(pi.ParameterType);
