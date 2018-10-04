@@ -13,5 +13,10 @@ namespace FakerLibrary
             Random rand = new Random();
             return rand.Next(0, 2) == 1 ? true : false;
         }
+
+        public string GetTypeName()
+        {
+            return "Bool";
+        }
     }
 }

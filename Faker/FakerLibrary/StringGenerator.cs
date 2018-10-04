@@ -23,5 +23,10 @@ namespace FakerLibrary
 
             return builder.ToString();
         }
+
+        public string GetTypeName()
+        {
+            return "String";
+        }
     }
 }

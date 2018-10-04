@@ -25,6 +25,7 @@ namespace FakerLibrary
 
         private object CreateByPublicFields(Type t)
         {
+            //NEED TO ADD CHECH ON ONLY GET-PROPERTIES
             object tmp = Activator.CreateInstance(t);
 
             //get public fields

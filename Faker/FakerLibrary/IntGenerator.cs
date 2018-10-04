@@ -12,5 +12,10 @@ namespace FakerLibrary
             Random rand = new Random();
             return rand.Next(int.MinValue, int.MaxValue);
         }
+
+        public string GetTypeName()
+        {
+            return "Int";
+        }
     }
 }

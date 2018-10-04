@@ -12,5 +12,10 @@ namespace FakerLibrary
         {
             return new object();
         }
+
+        public string GetTypeName()
+        {
+            return "Object";
+        }
     }
 }

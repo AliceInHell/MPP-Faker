@@ -13,5 +13,10 @@ namespace FakerLibrary
             Random rand = new Random();
             return (byte) rand.Next(0, 256);
         }
+
+        public string GetTypeName()
+        {
+            return "Byte";
+        }
     }
 }

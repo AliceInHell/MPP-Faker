@@ -12,5 +12,10 @@ namespace FakerLibrary
         {
             return DateTime.Now;
         }
+
+        public string GetTypeName()
+        {
+            return "DateTime";
+        }
     }
 }

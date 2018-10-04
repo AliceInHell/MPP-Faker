@@ -32,6 +32,6 @@ namespace FakerLibrary
         [DataMember]
         public Foo<string> _foo;
         [DataMember]
-        public char _char { get; set; }
+        public char _char { get; set;}
     }
 }

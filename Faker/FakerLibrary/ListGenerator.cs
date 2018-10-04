@@ -11,13 +11,16 @@ namespace FakerLibrary
     {
         public object Generate(Type t)
         {
-            string typeName = string.Format("System.Collections.Generic.List`1[[{0}]]", t.AssemblyQualifiedName);
-            Type type = Type.GetType(typeName);
-            object tmp =  Activator.CreateInstance(type);
+            object tmp =  Activator.CreateInstance(typeof(List<>).MakeGenericType(t));
             
             ((IList)tmp).Add(FieldValueGenerator.GenerateValue(t));
 
             return tmp;
+        }
+
+        public string GetTypeName()
+        {
+            return "List`1";
         }
     }
 }

@@ -13,5 +13,10 @@ namespace FakerLibrary
             Random rand = new Random();
             return Convert.ToChar(Convert.ToInt32(Math.Floor(26 * rand.NextDouble() + 65)));
         }
+
+        public string GetTypeName()
+        {
+            return "Char";
+        }
     }
 }

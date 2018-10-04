@@ -7,6 +7,7 @@ using System.IO;
 
 namespace FakerLibrary
 {
+    //BAD IDEA TO USE STATIC CLASS
     public static class FieldValueGenerator
     {
         private static List<Type> _DTOList;
@@ -88,8 +89,6 @@ namespace FakerLibrary
             _asm = Assembly.LoadFrom("E:\\Study\\Labs\\5 semester\\MPP\\lab2\\Faker\\GeneratorPlugins\\bin\\Debug\\GeneratorPlugins.dll");
 
             //generatorsDictionary initialization
-            Type asmType;
-            IGenerator obj;
             _generatorDictionary = new Dictionary<string, IGenerator>();
             _generatorDictionary.Add("Double", new DoubleGenerator());
             _generatorDictionary.Add("Char", new CharGenerator());
@@ -101,13 +100,15 @@ namespace FakerLibrary
             _generatorDictionary.Add("DateTime", new DateTimeGenerator());
 
             //plugins
-            asmType = _asm.GetType("GeneratorPlugins.FloatGenerator");
-            obj = (IGenerator) Activator.CreateInstance(asmType);
-            _generatorDictionary.Add("Single", obj);
+            var types = _asm.GetTypes().Where(t => t.GetInterfaces().
+                Where(i => i == typeof(IGenerator)).Any());
 
-            asmType = _asm.GetType("GeneratorPlugins.BoolGenerator");
-            obj = (IGenerator) Activator.CreateInstance(asmType);
-            _generatorDictionary.Add("Boolean", obj);
+            foreach (var type in types)
+            {
+                var plugin = _asm.CreateInstance(type.FullName) as IGenerator;
+                if (!_generatorDictionary.ContainsKey(plugin.GetTypeName()))
+                    _generatorDictionary.Add(plugin.GetTypeName(), plugin);
+            }
 
             //collectionGeneratorDictionary initialization
             _collectionGeneratorDictionary = new Dictionary<string, ICollectionGenerator>();

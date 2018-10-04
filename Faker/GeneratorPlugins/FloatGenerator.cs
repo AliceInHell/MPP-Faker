@@ -13,5 +13,10 @@ namespace GeneratorPlugins
             Random rand = new Random();
             return (float)rand.NextDouble() + (float)rand.NextDouble();
         }
+
+        public string GetTypeName()
+        {
+            return "Single";
+        }
     }
 }

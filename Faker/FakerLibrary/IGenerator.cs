@@ -9,5 +9,6 @@ namespace FakerLibrary
     public interface IGenerator
     {
         object Generate();
+        string GetTypeName();
     }
 }

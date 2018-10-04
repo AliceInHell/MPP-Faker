@@ -13,5 +13,10 @@ namespace FakerLibrary
             Random rand = new Random();
             return rand.NextDouble();
         }
+
+        public string GetTypeName()
+        {
+            return "Double";
+        }
     }
 }
